@@ -1,4 +1,6 @@
 import React from "react";
+
+import './track.css'
  class Track extends React.Component {
     render() {
         return (
