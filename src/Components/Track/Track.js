@@ -5,9 +5,9 @@ import './track.css'
 
     renderAction() {
       if (this.props.inRemoval) {
-        return <button>-</button>
+        return <button className="track-action">-</button>
       } else {
-        return <button>+</button>
+        return <button className="track-action">+</button>
       }
     }
 
@@ -15,10 +15,10 @@ import './track.css'
         return (
             <div className="Track">
   <div className="Track-information">
-    {/* <h3><!-- track name will go here --></h3> */}
-    {/* <p><!-- track artist will go here--> | <!-- track album will go here --></p> */}
+      <h3> track name </h3>
+      <p>track artist  | track album </p> 
   </div>
-  <button className="Track-action"> {/* <!-- + or - will go here --> */}</button>
+  <button className="Track-action"></button>
 </div>
         )
     }
