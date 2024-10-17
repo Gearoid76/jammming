@@ -1,21 +1,13 @@
 import React from 'react';
 import './SearchResults.css';
+import TrackList from '../TrackList/TrackList';
 
 class  SearchResults extends React.Component {
     render () {
         return (
             <div className="SearchResults">
                 <h2>Results</h2>
-              <ul>
-                    {this.props.searchResults.map(result => (
-                        <li key={result.id}>
-                            <p>Name: {result.name}</p>
-                            <p>Artist: {result.artist}</p>
-                            <p>Album: {result.album}</p>
-                        </li>
-                    )) }
-                </ul> 
-                {/* <TrackList /> */}
+                <TrackList tracks = {this.props.searchResults} /> 
             </div>
         )
     }
