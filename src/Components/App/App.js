@@ -9,10 +9,10 @@ class App extends React.Component {
     super (props); 
       this.state = {
         searchResults: [
-          { name: 'name1', artist: 'artist1', album: 'album1', id: 1 },
-          { name: 'name2', artist: 'artist2', album: 'album2', id: 2 },
-          { name: 'name3', artist: 'artist3', album: 'album3', id: 3 },
-          { name: 'name4', artist: 'artist4', album: 'album4', id: 4 }
+          { name: 'Tiny Dancer', artist: 'Elton John', album: 'the best of Elton', id: 1 },
+          { name: 'Tiny Dancer', artist: 'Rod Stward', album: 'Tiny dancer', id: 2 },
+          { name: 'Tiny Dancer', artist: 'Bon Jovi', album: 'the best of', id: 3 },
+          { name: 'Tiny Dancer', artist: 'U2', album: 'the child years', id: 4 }
         ]
     };
   } 
