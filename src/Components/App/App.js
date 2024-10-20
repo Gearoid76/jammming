@@ -26,7 +26,10 @@ class App extends React.Component {
       return;
     }
     tracks.push(track);
-    this.setState({ playlistTracks: tracks });
+   // this.setState({ playlistTracks: tracks });
+   this.setState({ playlistTracks: tracks }, () => {
+      console.log('Uploaded playlistTacks', this.state.playlistTracks);
+    });
   }
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
@@ -43,12 +46,12 @@ class App extends React.Component {
           <SearchBar /> 
           <div className="App-playlist">
            <SearchResults 
-              searchResults = {this.state.searchResults} 
-              onAdd = {this.addTrack} 
+              searchResults={this.state.searchResults} 
+              onAdd={this.addTrack} 
           />  
            <Playlist 
-              playlistTracks = {this.state.playlistTracks}
-              onRemove = {this.removeTrack}
+              playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
           /> 
     </div>
   </div>
