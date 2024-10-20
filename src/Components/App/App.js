@@ -14,7 +14,12 @@ class App extends React.Component {
           { name: 'Tiny Dancer', artist: 'Bon Jovi', album: 'the best of', id: 3 },
           { name: 'Tiny Dancer', artist: 'U2', album: 'the child years', id: 4 }
         ],
-        playlistTracks: [] 
+        playlistName: 'MyPlaylist',
+        playlistTracks: [
+          { name: 'PlaylistAlbum1', artist: 'PlaylistArtist1', album: 'playlistAlbum1', id: 5 },
+          { name: 'PlaylistAlbum2', artist: 'PlaylistArtist2', album: 'playlistAlbum2', id: 6 },
+          { name: 'PlaylistAlbum3', artist: 'PlaylistArtist3', album: 'playlistAlbum3', id: 7 },
+        ] 
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -26,14 +31,12 @@ class App extends React.Component {
       return;
     }
     tracks.push(track);
-   // this.setState({ playlistTracks: tracks });
-   this.setState({ playlistTracks: tracks }, () => {
-      console.log('Uploaded playlistTacks', this.state.playlistTracks);
-    });
+   this.setState({playlistTracks: tracks})
+   
   }
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks = tracks.filter(savedTrack => savedTrack.id !== track.id);
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id); // keeping it the same as vid
     this.setState({ playlistTracks: tracks });
   }
 
@@ -50,6 +53,7 @@ class App extends React.Component {
               onAdd={this.addTrack} 
           />  
            <Playlist 
+              playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack}
           /> 
