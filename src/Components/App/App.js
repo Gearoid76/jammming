@@ -53,8 +53,8 @@ class App extends React.Component {
               onAdd={this.addTrack} 
           />  
            <Playlist 
-              playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks}
+              playlistName={this.state.playlistName} 
+              playlistTracks={this.state.playlistTracks} 
               onRemove={this.removeTrack}
           /> 
     </div>
