@@ -25,6 +25,7 @@ class App extends React.Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   addTrack(track) {
@@ -38,7 +39,7 @@ class App extends React.Component {
   }
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id); // keeping it the same as vid
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id); 
     this.setState({ playlistTracks: tracks });
   }
   updatePlaylistName(name) {
@@ -47,8 +48,27 @@ class App extends React.Component {
 
   savePlaylist() { 
     alert("this button is working")
-     const trackUris = this.state.playlistTracks.map(track => track.uri);
+     const trackURIS = this.state.playlistTracks.map(track => track.uri);
+     const playlistName  = this.state.playlistName;
+     if (trackURIS.length && playlistName) {
+      console.log(`Saving playlist: ${playlistName}`, trackURIS);
+     } else {
+      console.log('No tracks or playist to save.')
+    }
   }
+  search(term) {
+    console.log(`Searching for ${term}`);
+  
+    const mockResults = [
+      { name: 'Song A', artist: 'Artist A', album: 'Album A', id: 8, uri: 'spotify:track:1' },
+      { name: 'Song B', artist: 'Artist B', album: 'Album B', id: 9, uri: 'spotify:track:2' },
+      { name: 'Song C', artist: 'Artist C', album: 'Album C', id: 10, uri: 'spotify:track:3' }
+    ];
+
+    this.setState({ searchResults: mockResults });
+  }
+  
+    
 
 
   render() {
@@ -56,7 +76,8 @@ class App extends React.Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <SearchBar /> 
+          <SearchBar 
+              onSearch={this.search} /> 
           <div className="App-playlist">
            <SearchResults 
               searchResults={this.state.searchResults} 
